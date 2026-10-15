@@ -1,0 +1,898 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>中学理科 レベル0 ひきょうな裏技</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Maru+Gothic:wght@500;700;900&display=swap">
+<style>
+/* 配置: 1カラムのカード縦並び。各カード = 種類タグ → 裏技(大きい文字) → 図 → ただし → 練習1問 */
+:root{
+  --bg:#eef1f6; --card:#ffffff; --ink:#14213d; --sub:#4a5878; --line:#c9d1e0;
+  --stamp:#d62839; --hi:#ffd23f; --hi-ink:#14213d; --ok:#1f8a4c; --ng:#d62839; --soft:#e4e9f3;
+  --f-disp:'Dela Gothic One','Zen Maru Gothic',sans-serif; --f-body:'Zen Maru Gothic','Hiragino Maru Gothic ProN','Yu Gothic',sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10151f; --card:#19202e; --ink:#eef1f8; --sub:#a4b0c8; --line:#2c3750;
+  --stamp:#ff6b78; --hi:#f2c230; --hi-ink:#14213d; --ok:#4cc884; --ng:#ff6b78; --soft:#222c40; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10151f; --card:#19202e; --ink:#eef1f8; --sub:#a4b0c8; --line:#2c3750;
+  --stamp:#ff6b78; --hi:#f2c230; --hi-ink:#14213d; --ok:#4cc884; --ng:#ff6b78; --soft:#222c40; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-weight:500;font-size:17px;line-height:1.75;padding-inline:16px;padding-block:24px 48px}
+.wrap{max-width:640px;margin-inline:auto;display:flex;flex-direction:column;gap:22px}
+h1,h2{font-family:var(--f-disp);font-weight:400;text-wrap:balance;margin:0;line-height:1.35}
+header{display:flex;flex-direction:column;gap:12px;padding-block:8px}
+.lv{align-self:flex-start;font-family:var(--f-disp);font-size:13px;letter-spacing:.12em;border:2px solid var(--stamp);color:var(--stamp);padding:2px 10px;border-radius:4px;transform:rotate(-3deg)}
+h1{font-size:30px}
+h1 mark{background:linear-gradient(transparent 55%,var(--hi) 55%);color:inherit}
+.lead{margin:0;color:var(--sub)}
+.rule{background:var(--soft);border-radius:10px;padding:12px 14px;font-size:15px;color:var(--sub);margin:0}
+.rule b{color:var(--ink)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;color:var(--sub)}
+.tag{background:var(--stamp);color:#fff;padding:1px 10px;border-radius:99px;font-weight:700}
+.eff{margin-left:auto;font-weight:700}
+.eff i{font-style:normal;color:var(--stamp)}
+h2{font-size:20px}
+.trick{font-size:20px;font-weight:900;line-height:1.7;margin:0}
+.trick mark{background:var(--hi);color:var(--hi-ink);padding:1px 6px;border-radius:4px}
+.sub{margin:0;font-size:15px;color:var(--sub)}
+.fig{background:var(--soft);border-radius:10px;padding:12px;overflow-x:auto}
+.fig svg{display:block;margin-inline:auto;max-width:100%;height:auto}
+.fig text{fill:var(--ink);font-family:var(--f-body);font-weight:700}
+.warn{border-left:4px solid var(--pink);padding:2px 0 2px 12px;font-size:15px;margin:0}
+.warn b{color:var(--stamp)}
+:root{--pink:#ff9fcd;--pink-ink:#14213d}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--pink:#ff86bd}}
+:root[data-theme="dark"]{--pink:#ff86bd}
+.pk,.warn > b:first-child{background:var(--pink);color:var(--pink-ink);padding:1px 6px;border-radius:4px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:center}
+th{background:var(--soft)}
+tr.hl td{background:var(--hi);color:var(--hi-ink);font-weight:900}
+.bars{display:flex;flex-direction:column;gap:6px;font-size:14px}
+.bar{display:grid;grid-template-columns:7.5em 1fr 3.5em;align-items:center;gap:8px}
+.bar span.t{height:18px;border-radius:4px;background:var(--stamp);display:block}
+.bar b{text-align:right;font-variant-numeric:tabular-nums}
+.quiz{border-top:2px dashed var(--line);padding-top:14px;display:flex;flex-direction:column;gap:10px}
+.quiz .qt{font-family:var(--f-disp);font-size:13px;color:var(--stamp);letter-spacing:.1em}
+.quiz p{margin:0}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{font:inherit;font-weight:700;text-align:left;background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:10px;padding:10px 14px;cursor:pointer;min-height:48px}
+.opt:hover{border-color:var(--sub)}
+.opt:focus-visible,.again:focus-visible{outline:3px solid var(--stamp);outline-offset:2px}
+.opt.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 16%,var(--card))}
+.opt.ng{border-color:var(--ng);background:color-mix(in srgb,var(--ng) 14%,var(--card))}
+.opt:disabled{cursor:default}
+.opt svg{vertical-align:middle;margin-right:12px}
+.figttl{font-size:14px;font-weight:700;margin:0 0 -6px;color:var(--sub)}
+.sub mark{background:var(--hi);color:var(--hi-ink);padding:1px 6px;border-radius:4px}
+.exbox{background:var(--soft);border-radius:10px;padding:12px 14px;font-size:15px;display:flex;flex-direction:column;gap:8px}
+.exbox b{font-family:var(--f-disp);font-weight:400;color:var(--stamp);font-size:13px;letter-spacing:.08em}
+.exbox p{margin:0}
+.exbox .a{color:var(--stamp);font-weight:900}
+.nav{display:flex;flex-wrap:wrap;gap:6px}
+.nav a{font-size:13px;font-weight:700;color:var(--ink);background:var(--soft);padding:3px 10px;border-radius:99px;text-decoration:none}
+.nav a:focus-visible{outline:3px solid var(--stamp);outline-offset:2px}
+.skit{background:var(--soft);border-radius:10px;padding:12px 14px;font-size:15px;display:flex;flex-direction:column;gap:8px}
+.skit > b{font-family:var(--f-disp);font-weight:400;color:var(--stamp);font-size:13px;letter-spacing:.08em}
+.skit p{margin:0}
+.skit .who{display:inline-block;min-width:3em;font-weight:900;color:var(--sub)}
+.wv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.wc{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:13px;text-align:center;font-weight:700;min-width:0}
+.wc svg{width:100%;max-width:150px;height:auto}
+.chal{border:2px solid var(--stamp)}
+.chead{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-weight:700;font-variant-numeric:tabular-nums}
+.prog{height:10px;background:var(--soft);border-radius:99px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--stamp);border-radius:99px}
+.cq{margin:0;font-size:18px;font-weight:700}
+.cq:focus,.big:focus{outline:none}
+.big{font-family:var(--f-disp);font-size:44px;line-height:1.2;margin:0;font-variant-numeric:tabular-nums}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.go{font-family:var(--f-disp);font-size:17px;background:var(--stamp);color:var(--card);border:none;border-radius:12px;padding:12px 22px;cursor:pointer;min-height:48px}
+.btn2{font:inherit;font-weight:700;background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:10px;padding:10px 16px;cursor:pointer;min-height:48px}
+.go:focus-visible,.btn2:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.misslist{display:flex;flex-direction:column;gap:6px;padding:0;margin:6px 0 0;list-style:none;font-size:15px}
+.misslist a{color:var(--ink);font-weight:700}
+.nav a.chip{background:var(--stamp);color:var(--card)}
+.ans{font-size:16px;background:var(--soft);border-radius:10px;padding:10px 14px}
+.ans .v{font-family:var(--f-disp);font-size:17px}
+.ans .v.ok{color:var(--ok)} .ans .v.ng{color:var(--ng)}
+.again{align-self:flex-start;font:inherit;font-weight:700;font-size:14px;background:none;border:none;color:var(--sub);text-decoration:underline;cursor:pointer;padding:6px 0}
+footer{color:var(--sub);font-size:14px;text-align:center;display:flex;flex-direction:column;gap:14px;align-items:stretch}
+.back{align-self:flex-start;font-size:14px;font-weight:700;color:var(--sub);text-decoration:none;border-bottom:2px solid var(--line)}
+.next{display:block;font-family:var(--f-disp);font-size:18px;background:var(--ink);color:var(--bg);padding:14px 16px;border-radius:12px;text-decoration:none}
+.back:focus-visible,.next:focus-visible{outline:3px solid var(--stamp);outline-offset:3px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="back" href="https://chugaku.senta1111.workers.dev/">← 中学自習サイト トップへ</a>
+  <span class="lv">LEVEL 0</span>
+  <h1>理科の<mark>ひきょうな裏技</mark></h1>
+  <p class="lead">ぜんぜんわからなくても、これを書けば当たる。「決め打ち」と「語呂合わせ」だけ集めました。</p>
+  <p class="rule"><b>つかい方：</b>わからない問題を見たら、まず下の技に当てはまらないか探す。<span class="pk">ぜんぶ当たるわけじゃないので「ただし」だけは読んでね。</span></p>
+  <p class="sub">さいごに、ランダムで出る全問チャレンジがあるよ。</p>
+</header>
+<nav id="nav" class="nav" aria-label="もくじ"></nav>
+<main id="list" class="wrap" style="gap:22px"></main>
+<footer>
+  <span>裏技で点を拾えたら、つぎは レベル1 でほんとうの中身を見ていこう。</span>
+  <a class="next" href="https://chugaku-rika1.senta1111.workers.dev/">理科 レベル1 へ進む →</a>
+</footer>
+</div>
+
+<script>
+const FP='M0 0H34V10H10V25H28V35H10V60H0Z';
+function fsvg(sx,sy){return `<svg width="40" height="50" viewBox="-22 -34 44 68" aria-hidden="true"><path d="${FP}" fill="currentColor" transform="scale(${sx},${sy}) translate(-17,-30)"/></svg>`}
+function gsvg(show){
+  const lab = show ? `<text x="130" y="162" font-size="13" text-anchor="middle" style="fill:var(--stamp)">とけている最中</text>
+    <text x="230" y="72" font-size="13" text-anchor="middle" style="fill:var(--stamp)">ふっとう中</text>` : '';
+  return `<svg viewBox="0 0 300 200" width="300" role="img" aria-label="氷を加熱したときの温度変化。0℃と100℃で横ばいになる">
+  <line x1="56" y1="180" x2="290" y2="180" stroke="currentColor" stroke-width="2"/>
+  <line x1="56" y1="22" x2="56" y2="180" stroke="currentColor" stroke-width="2"/>
+  <text x="60" y="16" font-size="12">温度</text>
+  <text x="290" y="196" font-size="12" text-anchor="end">時間 →</text>
+  <line x1="56" y1="140" x2="255" y2="140" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <line x1="56" y1="50" x2="255" y2="50" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="50" y="144" font-size="12" text-anchor="end">0℃</text>
+  <text x="50" y="54" font-size="12" text-anchor="end">100℃</text>
+  <polyline fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" points="66,160 100,140"/>
+  <polyline fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" points="160,140 205,50"/>
+  <line x1="100" y1="140" x2="160" y2="140" stroke="var(--stamp)" stroke-width="6" stroke-linecap="round"/>
+  <line x1="205" y1="50" x2="255" y2="50" stroke="var(--stamp)" stroke-width="6" stroke-linecap="round"/>
+  <text x="62" y="174" font-size="13">A</text><text x="100" y="130" font-size="13" text-anchor="middle">B</text>
+  <text x="160" y="130" font-size="13" text-anchor="middle">C</text><text x="205" y="40" font-size="13" text-anchor="middle">D</text>
+  <text x="255" y="40" font-size="13" text-anchor="middle">E</text>${lab}</svg>`;
+}
+function wave(a,c){const p=[];for(let i=0;i<=140;i+=2){p.push((5+i)+','+(40-a*Math.sin(2*Math.PI*c*i/140)).toFixed(1));}
+  return `<svg viewBox="0 0 150 80" width="150" aria-hidden="true"><line x1="5" y1="40" x2="145" y2="40" stroke="var(--line)" stroke-width="1.5"/><polyline points="${p.join(' ')}" fill="none" stroke="var(--stamp)" stroke-width="2.5" stroke-linejoin="round"/></svg>`;}
+function wcell(a,c,cap){return `<div class="wc">${wave(a,c)}<span>${cap}</span></div>`;}
+const T = [
+{
+  tag:'決め打ち', eff:3, title:'「〜の関係は？」と聞かれたら',
+  trick:'とりあえず<mark>比例</mark>と書く',
+  fig:`<svg viewBox="0 0 300 170" width="300" role="img" aria-label="原点を通る右上がりの直線のグラフ">
+    <line x1="40" y1="140" x2="280" y2="140" stroke="currentColor" stroke-width="2"/>
+    <line x1="40" y1="140" x2="40" y2="14" stroke="currentColor" stroke-width="2"/>
+    <line x1="40" y1="140" x2="260" y2="30" stroke="var(--stamp)" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="40" cy="140" r="7" fill="var(--hi)" stroke="var(--stamp)" stroke-width="3"/>
+    <text x="52" y="162" font-size="14">原点(0,0)</text>
+    <text x="150" y="70" font-size="15" transform="rotate(-27 150 70)">まっすぐ・原点を通る = 比例</text></svg>`,
+  warn:'<b>ただし：</b>文に「一方が大きくなると、もう一方は小さくなる」と書いてあったら<b>反比例</b>。それ以外は、まず比例。',
+  q:{t:'電熱線の電圧を2倍にすると、流れる電流は2倍になった。電圧と電流はどんな関係？',o:['比例','反比例','関係ない'],a:0,
+     why:'ばねの「おもりの重さとのび」、同じ物質の「体積と質量」、地震の「震源までの距離と、初期微動が続く時間」も、みんな比例だよ。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'とけ方・結晶の問題で、物質名を選ぶとき',
+  trick:'<mark>硝酸カリウム</mark> ＞ <mark>みょうばん</mark> ＞ 食塩<br>左にあるものが答え',
+  fig:`<div class="bars" aria-label="60℃から20℃に冷やしたとき、出てくる結晶の量">
+    <div style="font-size:13px;color:var(--sub)">水100gを60℃→20℃に冷やしたとき出る結晶(g)</div>
+    <div class="bar"><span>硝酸カリウム</span><span class="t" style="width:100%"></span><b>77</b></div>
+    <div class="bar"><span>みょうばん</span><span class="t" style="width:60%"></span><b>46</b></div>
+    <div class="bar"><span>食塩</span><span class="t" style="width:2%;min-width:3px"></span><b>1</b></div></div>`,
+  warn:'<b>ただし：</b>「温度を下げても、ほとんど結晶が出ない物質は？」と聞かれたら答えは<b>食塩</b>。ここだけ逆になる。',
+  q:{t:'水100gに物質をとかし、60℃から20℃まで冷やす。いちばん多く結晶が出るのは？',
+     html:`<table><tr><th>水100gにとける量</th><th>20℃</th><th>60℃</th></tr>
+       <tr><td>食塩</td><td>36g</td><td>37g</td></tr>
+       <tr><td>みょうばん</td><td>11g</td><td>57g</td></tr>
+       <tr><td>硝酸カリウム</td><td>32g</td><td>109g</td></tr></table>`,
+     o:['食塩','みょうばん','硝酸カリウム'],a:2,
+     why:'60℃と20℃の差が大きいほど、たくさん出る。硝酸カリウムは109−32＝77g、みょうばんは57−11＝46g、食塩は1g。'}
+},
+{
+  tag:'消去法', eff:2, title:'「正しいものを選べ」で迷ったら',
+  trick:'<mark>すべて・必ず・どれも・常に</mark><br>が入った文は×',
+  fig:`<svg viewBox="0 0 300 120" width="300" role="img" aria-label="すべて、必ずは×、ふつう、多くは○に近い">
+    <rect x="10" y="12" width="130" height="46" rx="8" fill="none" stroke="var(--stamp)" stroke-width="3"/>
+    <text x="75" y="42" font-size="18" text-anchor="middle">すべて・必ず</text>
+    <text x="150" y="42" font-size="30" style="fill:var(--stamp)">×</text>
+    <rect x="10" y="68" width="130" height="46" rx="8" fill="none" stroke="var(--ok)" stroke-width="3"/>
+    <text x="75" y="98" font-size="18" text-anchor="middle">ふつう・多くは</text>
+    <text x="150" y="98" font-size="30" style="fill:var(--ok)">○</text></svg>`,
+  warn:'<b>ただし：</b>教科書の決まりごとなら「必ず」でも正しいことがある。つかうのは<b>2択でどっちか迷ったとき</b>だけ。',
+  q:{t:'正しい文はどっち？',o:['ア　金属はすべて磁石につく','イ　金属は電気をよく通す'],a:1,
+     why:'アには「すべて」が入っている。銅やアルミニウムは金属だけど磁石につかない。だからアは×、イが○。'}
+},
+{
+  tag:'語呂合わせ', eff:3, title:'高気圧と低気圧',
+  trick:'<mark>高血圧</mark>＝下げればハッピー日本晴れ<br>高気圧 ＝ 下降気流 ＝ 晴れ',
+  sub:'低血圧はその逆。低気圧 ＝ 上昇気流 ＝ くもり・雨。',
+  fig:`<svg viewBox="0 0 330 150" width="330" role="img" aria-label="高気圧は空気が下がって晴れ、低気圧は空気が上がって雨">
+    <text x="85" y="18" font-size="15" text-anchor="middle">高気圧</text>
+    <circle cx="85" cy="42" r="14" fill="var(--hi)" stroke="var(--stamp)" stroke-width="3"/>
+    <path d="M85 72 V120" stroke="var(--stamp)" stroke-width="7" stroke-linecap="round"/>
+    <path d="M68 104 L85 126 L102 104" fill="none" stroke="var(--stamp)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="85" y="146" font-size="13" text-anchor="middle">下がる＝晴れ</text>
+    <line x1="165" y1="12" x2="165" y2="140" stroke="var(--line)" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="245" y="18" font-size="15" text-anchor="middle">低気圧</text>
+    <ellipse cx="245" cy="42" rx="34" ry="14" fill="var(--card)" stroke="currentColor" stroke-width="3"/>
+    <path d="M245 120 V72" stroke="var(--stamp)" stroke-width="7" stroke-linecap="round"/>
+    <path d="M228 88 L245 66 L262 88" fill="none" stroke="var(--stamp)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="245" y="146" font-size="13" text-anchor="middle">上がる＝くもり・雨</text></svg>`,
+  warn:'<b>ただし：</b>これは「空気の動きと天気」の問題で使う。風がふく向きなどは別。',
+  q:{t:'高気圧の中心付近では、空気はどう動く？ 天気は？',o:['下降気流で、晴れる','上昇気流で、雨になる'],a:0,
+     why:'高血圧＝下げればハッピー日本晴れ。「下げる」＝下降気流、「日本晴れ」＝晴れ。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'日本付近の天気は、どっちへ動く？',
+  trick:'低気圧・前線・天気は<mark>西</mark>から<mark>東</mark>へ',
+  sub:'理由は、日本の上空で強い西風（<mark>偏西風</mark>）がふいているから。',
+  fig:`<svg viewBox="0 0 330 130" width="330" role="img" aria-label="偏西風にのって、雲や低気圧は西から東へ進む">
+    <text x="14" y="24" font-size="18">西</text>
+    <text x="316" y="24" font-size="18" text-anchor="end">東</text>
+    <ellipse cx="70" cy="62" rx="32" ry="17" fill="var(--card)" stroke="currentColor" stroke-width="3"/>
+    <ellipse cx="165" cy="62" rx="32" ry="17" fill="var(--card)" stroke="currentColor" stroke-width="3"/>
+    <ellipse cx="260" cy="62" rx="32" ry="17" fill="var(--card)" stroke="currentColor" stroke-width="3"/>
+    <text x="165" y="68" font-size="15" text-anchor="middle" style="fill:var(--stamp)">低</text>
+    <path d="M24 100 H298 M285 90 L299 100 L285 110" fill="none" stroke="var(--stamp)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="165" y="124" font-size="14" text-anchor="middle">偏西風</text></svg>`,
+  ex:[['明日の天気を知るには、どちらの空を見る？','西の空（天気が西から来るから）'],
+      ['天気が西から東へ変わっていくのは、何がふいているから？','偏西風']],
+  warn:'<b>ただし：</b>台風は、はじめは西〜北西へ進み、日本に近づくと偏西風にのって東へ向きを変える。また「風がふく向き」は季節風（夏は南東、冬は北西）で、天気が動く向きとは別の話。',
+  q:{t:'日本付近の低気圧は、ふつう、どちらからどちらへ動く？',o:['東から西へ','西から東へ','北から南へ'],a:1,
+     why:'日本の上空では偏西風がふいているので、低気圧も天気も、西から東へ動く。'}
+},
+{
+  tag:'語呂合わせ', eff:3, title:'BTB液の色',
+  trick:'<mark>きみどり</mark>と<mark>あお</mark>で、3色そろう',
+  sub:'黄・緑・青 の順 ＝ 酸性・中性・アルカリ性。「きみどり」を黄と緑に分けて、あおを足すだけ。',
+  fig:`<svg viewBox="0 0 330 100" width="330" role="img" aria-label="黄色は酸性、緑は中性、青はアルカリ性">
+    <rect x="10" y="10" width="100" height="44" rx="8" fill="#f2d320"/>
+    <rect x="115" y="10" width="100" height="44" rx="8" fill="#3fae6a"/>
+    <rect x="220" y="10" width="100" height="44" rx="8" fill="#3a74d8"/>
+    <text x="60" y="38" font-size="18" text-anchor="middle" style="fill:#14213d">黄</text>
+    <text x="165" y="38" font-size="18" text-anchor="middle" style="fill:#fff">緑</text>
+    <text x="270" y="38" font-size="18" text-anchor="middle" style="fill:#fff">青</text>
+    <text x="60" y="82" font-size="15" text-anchor="middle">酸性</text>
+    <text x="165" y="82" font-size="15" text-anchor="middle">中性</text>
+    <text x="270" y="82" font-size="15" text-anchor="middle">アルカリ性</text></svg>`,
+  warn:'<b>ただし：</b>色の順番は、酸性・中性・アルカリ性の並びとぴったり同じ。ここだけ守ればOK。',
+  q:{t:'中性の水溶液にBTB液を入れると、何色になる？',o:['黄色','緑色','青色'],a:1,
+     why:'きみどり（黄・緑）とあお（青）。まん中の緑が中性。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'BTB液と、フェノールフタレイン液',
+  trick:'アルカリ性で<mark>赤</mark>くなるのは<mark>フェノールフタレイン</mark><br>（酸性・中性は無色）',
+  sub:'BTBは3色。フェノールフタレインは「無色か赤」の2つだけ。「赤くなった」と書いてあったら、アルカリ性。',
+  fig:`<table><tr><th></th><th>酸性</th><th>中性</th><th>アルカリ性</th></tr>
+    <tr><td>BTB液</td><td style="background:#f2d320;color:#14213d;font-weight:900">黄</td><td style="background:#3fae6a;color:#fff;font-weight:900">緑</td><td style="background:#3a74d8;color:#fff;font-weight:900">青</td></tr>
+    <tr><td>フェノール<br>フタレイン液</td><td>無色</td><td>無色</td><td style="background:#c2185b;color:#fff;font-weight:900">赤（赤紫）</td></tr></table>`,
+  skit:[['先生','BTBは、酸性で黄色、中性で緑、アルカリ性で青。3色に変わる。'],
+        ['生徒','フェノールフタレインは？　名前が長い！'],
+        ['先生','酸性でも中性でも無色。アルカリ性のときだけ赤紫になる。つまり「アルカリ性かどうか」しか分からない。'],
+        ['生徒','じゃあ、「赤くなった」と書いてあったら？'],
+        ['先生','アルカリ性！　色だけ見れば答えが決まる。'],
+        ['先生','ちなみに水にとけにくいから、エタノールにとかして売っているんだ（へぇ）。']],
+  warn:'<b>ただし：</b>「赤＝アルカリ性」はフェノールフタレインのときだけ。リトマス紙は逆で、赤リトマス紙はアルカリ性で<b>青</b>に変わる（酸性で赤くなるのは青リトマス紙）。',
+  q:{t:'ある水溶液にフェノールフタレイン液を加えたら、赤色になった。この水溶液の性質は？',o:['酸性','中性','アルカリ性'],a:2,
+     why:'フェノールフタレインは、アルカリ性のときだけ赤。酸性と中性では無色のまま。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'塩化コバルト紙',
+  trick:'<mark>青</mark>い紙が<mark>赤</mark>に変わったら ＝ <mark>水</mark>がある',
+  sub:'塩化コバルト紙は「水を見つける紙」。水があるかどうかだけ分かる。',
+  fig:`<svg viewBox="0 0 330 130" width="330" role="img" aria-label="青い紙は水がつくと赤になり、あたためると青にもどる">
+    <rect x="14" y="26" width="90" height="62" rx="8" fill="#4aa3e0"/>
+    <text x="59" y="66" font-size="24" text-anchor="middle" style="fill:#14213d">青</text>
+    <rect x="226" y="26" width="90" height="62" rx="8" fill="#e0526b"/>
+    <text x="271" y="66" font-size="24" text-anchor="middle" style="fill:#fff">赤</text>
+    <text x="165" y="40" font-size="14" text-anchor="middle">水がつく</text>
+    <path d="M114 50 H214 M202 41 L216 50 L202 59" fill="none" stroke="var(--stamp)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M216 74 H116 M128 65 L114 74 L128 83" fill="none" stroke="var(--sub)" stroke-width="4" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="165" y="100" font-size="13" text-anchor="middle">あたためる（水がぬける）</text>
+    <text x="59" y="112" font-size="12" text-anchor="middle">かわいている</text>
+    <text x="271" y="112" font-size="12" text-anchor="middle">水がある</text></svg>`,
+  skit:[['生徒','この紙、なんで乾燥剤といっしょにビンに入ってるの？'],
+        ['先生','空気中の水（湿気）にも反応して、赤くなっちゃうから。それくらい水に敏感なんだ。'],
+        ['生徒','だから、さわるときはピンセットなんだ！'],
+        ['先生','そう。テストには出ないけど、これを知っていれば「水に反応する紙」ってわすれないよね。'],
+        ['生徒','赤くなったら、もうダメ？'],
+        ['先生','あたためて乾かせば、水がぬけて青にもどるよ。']],
+  ex:[['炭酸水素ナトリウムを加熱したら、試験管の口に液体がたまった。そこに塩化コバルト紙をつけると？','青色から赤色に変わる。水ができたしょうこ']
+      ,['ろうそくを燃やしたあと、集気びんの内側がくもった。塩化コバルト紙をつけると？','青色から赤色に変わる。燃えると水ができる']
+      ,['塩化コバルト紙が青から赤に変わった。何があった？','水']],
+  warn:'<b>ただし：</b>答えには「青色から赤色」と書く（教科書では「うすい赤・桃色」とも書く）。水色に見えても、青色と書くのが安全。',
+  q:{t:'ろうそくを燃やしたあと、集気びんの内側についた液体に塩化コバルト紙をつけた。色はどうなる？',o:['青色から赤色','赤色から青色','白色から青色'],a:0,
+     why:'ろうそくが燃えると水ができる。水に塩化コバルト紙をつけると、青色から赤色に変わる。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'気体の見分け方',
+  trick:'<mark>マッチ</mark>＝<mark>水素</mark>　<mark>線香</mark>＝<mark>酸素</mark>',
+  sub:'あと2つ。石灰水が白くにごる＝二酸化炭素、ツンとにおう＝アンモニア。',
+  fig:`<table><tr><th>見分け方</th><th>気体</th></tr>
+    <tr class="hl"><td>火のついたマッチを近づける → ポッと音を立てて燃える</td><td>水素</td></tr>
+    <tr class="hl"><td>火のついた線香を入れる → 激しく燃える</td><td>酸素</td></tr>
+    <tr><td>石灰水に通す → 白くにごる</td><td>二酸化炭素</td></tr>
+    <tr><td>ツンとにおう</td><td>アンモニア</td></tr></table>`,
+  warn:'<b>いちばんのまちがい：</b>「火を近づけるとポッと燃える」を酸素と答える子が多い。もし酸素がポッと燃えるなら、空気中には酸素がたくさんあるから、ライターで火をつけた瞬間に世界中が大爆発してしまう。そんなわけないよね。酸素は「ものが燃えるのを助ける」だけで、自分は燃えない。ポッと音を立てて燃えるのは水素。「水素＝ボン！」とおぼえよう（水素爆弾は別のしくみだけど、イメージづけとして）。',
+  q:{t:'うすい塩酸に亜鉛を入れて、発生した気体を集めた。火のついたマッチを近づけると、ポッと音を立てて燃えた。この気体は？',o:['酸素','水素','二酸化炭素'],a:1,
+     why:'マッチ＝水素。ポッと燃えるのは水素。酸素は線香を入れて、激しく燃えるほうだよ。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'金属をうすい塩酸に入れる問題',
+  trick:'「<mark>気体が出なかった</mark>」＝<mark>銅</mark>',
+  sub:'マグネシウム・亜鉛・鉄は、塩酸にとけて水素が出る。銅だけは変化なし。',
+  fig:`<table><tr><th>金属</th><th>うすい塩酸に入れると</th></tr>
+    <tr><td>マグネシウム</td><td>あわ（水素）が出る</td></tr>
+    <tr><td>亜鉛</td><td>あわ（水素）が出る</td></tr>
+    <tr><td>鉄</td><td>あわ（水素）が出る</td></tr>
+    <tr class="hl"><td>銅</td><td>変化なし</td></tr></table>`,
+  ex:[['塩酸に金属を入れて、発生した気体は？','水素'],
+      ['その気体に火を近づけると？','ポッと音を立てて燃える']],
+  warn:'<b>ただし：</b>選択肢に<b>アルミニウム</b>があるときは別。アルミニウムも塩酸にとけて水素が出る。「変化なし＝銅」で決まるのは、マグネシウム・亜鉛・鉄・銅の中から選ぶとき。',
+  q:{t:'金属A〜Dは、マグネシウム・亜鉛・鉄・銅のどれか。それぞれうすい塩酸に入れると、結果は下の表のようになった。銅はどれ？',
+     html:`<table><tr><th>金属</th><th>結果</th></tr>
+       <tr><td>A</td><td>あわが出た</td></tr><tr><td>B</td><td>あわが出た</td></tr>
+       <tr><td>C</td><td>変化なし</td></tr><tr><td>D</td><td>あわが出た</td></tr></table>`,
+     o:['A','B','C','D'],a:2,
+     why:'気体が出なかった（変化なし）のは銅だけ。だからCが銅。あわの正体は水素。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'「においがある」気体は？',
+  trick:'「<mark>においがある</mark>」＝<mark>アンモニア</mark>',
+  sub:'酸素・水素・二酸化炭素・窒素は、においがない。ツンとにおうのはアンモニアだけ。',
+  fig:`<table><tr><th>気体</th><th>におい</th></tr>
+    <tr><td>酸素</td><td>なし</td></tr><tr><td>水素</td><td>なし</td></tr>
+    <tr><td>二酸化炭素</td><td>なし</td></tr><tr><td>窒素</td><td>なし</td></tr>
+    <tr class="hl"><td>アンモニア</td><td>あり（ツンとする）</td></tr></table>`,
+  ex:[['アンモニアを水にとかすと、何性になる？','アルカリ性'],
+      ['アンモニアの噴水実験で、水が赤くなったのはなぜ？','水にフェノールフタレイン液が入っていて、アンモニアがとけてアルカリ性になったから'],
+      ['アンモニアの集め方は？','上方置換']],
+  warn:'<b>ただし：</b>じつは、塩素（黄緑色）、硫化水素（卵がくさったようなにおい）、二酸化硫黄などもにおう。つかうのは、酸素・水素・二酸化炭素・窒素・アンモニアの中から選ぶとき。塩素は黄緑色なので、「無色」と書いてあれば選ばない。',
+  q:{t:'無色で、においのある気体は、どれ？',o:['酸素','二酸化炭素','アンモニア'],a:2,
+     why:'酸素と二酸化炭素は、無色でにおいもない。においがあるのはアンモニア。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'気体を集める方法を聞かれたら',
+  trick:'<mark>アンモニア</mark>だけ上方置換<br>あとは ぜんぶ<mark>水上置換</mark>',
+  fig:`<table><tr><th>気体</th><th>集め方</th></tr>
+    <tr><td>酸素・水素・窒素</td><td>水上置換</td></tr>
+    <tr><td>二酸化炭素</td><td>水上置換（下方置換でもOK）</td></tr>
+    <tr class="hl"><td>アンモニア</td><td>上方置換</td></tr></table>`,
+  warn:'<b>ただし：</b>アンモニアは水によくとけるので、水上置換は<b>×</b>。選択肢に水上置換しかないときは、とけにくい気体の問題だよ。',
+  q:{t:'水素を集めるのに、いちばんよい方法は？',o:['水上置換','上方置換','下方置換'],a:0,
+     why:'アンモニア以外は水上置換。水素は水にとけにくいので、水上置換で集められる。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'金属を加熱してできた物質の色',
+  trick:'<mark>白色</mark>の物質ができたら ＝ <mark>マグネシウム</mark>',
+  sub:'銅は黒色、鉄（スチールウール）も黒っぽい色になる。「白」はマグネシウムだけ。',
+  fig:`<table><tr><th>加熱した金属</th><th>できた物質</th><th>色</th></tr>
+    <tr class="hl"><td>マグネシウム</td><td>酸化マグネシウム</td><td>白色</td></tr>
+    <tr><td>銅</td><td>酸化銅</td><td>黒色</td></tr>
+    <tr><td>鉄（スチールウール）</td><td>酸化鉄</td><td>黒っぽい色</td></tr></table>`,
+  ex:[['金属を加熱して酸素と結びつくことを何という？','酸化'],
+      ['金属を加熱すると、質量はどうなる？','ふえる（酸素が結びつくから）'],
+      ['マグネシウムを加熱すると、どんな様子で燃える？','強い光を出して、はげしく燃える']],
+  warn:'<b>ただし：</b>つかうのは、マグネシウム・銅・鉄の中から選ぶとき。酸化銀を加熱してできる銀は白色だけど、これは「酸化銀の分解」という別の話（金属を加熱する話ではない）。',
+  q:{t:'金属を加熱したら、白色の物質ができた。もとの金属は？',o:['マグネシウム','銅','鉄'],a:0,
+     why:'白色の酸化マグネシウムができるのはマグネシウム。銅と鉄は黒っぽい色になる。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'「黒い粉末」を加熱したら',
+  trick:'<mark>黒い粉末</mark> ＝ <mark>酸化銅</mark><br>炭素と加熱 → <mark>赤い銅</mark> ＋ <mark>二酸化炭素</mark>',
+  sub:'「黒い粉」が出たら、まず酸化銅。赤い物質になったら銅、出た気体は二酸化炭素（石灰水が白くにごる）。',
+  fig:`<svg viewBox="0 0 340 170" width="340" role="img" aria-label="酸化銅と炭素の粉末を加熱し、出た気体を石灰水に通す">
+    <rect x="14" y="40" width="150" height="44" rx="10" fill="var(--card)" stroke="currentColor" stroke-width="3"/>
+    <rect x="24" y="54" width="62" height="24" rx="4" fill="#2b2b2b"/>
+    <path d="M44 128 C38 112 52 108 50 94 C62 104 68 116 56 128 Z" fill="var(--stamp)"/>
+    <path d="M164 62 H232 V122" fill="none" stroke="currentColor" stroke-width="3"/>
+    <path d="M200 108 V152 H280 V108" fill="none" stroke="currentColor" stroke-width="3"/>
+    <rect x="203" y="130" width="74" height="20" fill="var(--soft)"/>
+    <text x="89" y="28" font-size="13" text-anchor="middle">酸化銅＋炭素（黒い粉末）</text>
+    <text x="92" y="144" font-size="13" text-anchor="middle">加熱</text>
+    <text x="198" y="52" font-size="13" text-anchor="middle">二酸化炭素</text>
+    <text x="240" y="145" font-size="11" text-anchor="middle">白くにごる</text>
+    <text x="240" y="168" font-size="13" text-anchor="middle">石灰水</text></svg>`,
+  ex:[['できた赤い物質をこすると？','金属光沢が出る（銅）'],
+      ['発生した気体を石灰水に通すと？','白くにごる（二酸化炭素）'],
+      ['加熱をやめる前に、ガラス管を石灰水から出すのはなぜ？','石灰水が逆流して、試験管が割れるのを防ぐため'],
+      ['酸化銅が酸素をうばわれて銅になる変化を何という？','還元']],
+  warn:'<b>ただし：</b>黒い粉末でも、<b>過酸化水素水（オキシドール）に入れて酸素が出る</b>ときの黒い粉は二酸化マンガン。決め手は「加熱して赤い物質になった」かどうか。',
+  q:{t:'黒い粉末（酸化銅と炭素）を加熱したら、赤い物質ができた。この赤い物質は？',o:['銅','鉄','酸化銅'],a:0,
+     why:'酸化銅が炭素に酸素をうばわれて、赤い銅になる。同時に二酸化炭素が出る。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'凸レンズで、スクリーンにうつる像',
+  trick:'スクリーンにうつる像は<mark>さかさま</mark>',
+  sub:'上下左右ぜんぶ逆。これを「実像」という。迷ったら、紙に「F」を書いて、鏡を2回かける。',
+  fig2t:'答えの出し方：Fを書いて、Y軸で鏡 → X軸で鏡',
+  fig2:`<svg viewBox="0 0 360 200" width="360" role="img" aria-label="Fを、Y軸で鏡にうつし、さらにX軸で鏡にうつすと、スクリーンの像になる">
+    <defs><path id="fg" d="${FP}"/></defs>
+    <line x1="20" y1="100" x2="340" y2="100" stroke="currentColor" stroke-width="2"/>
+    <line x1="180" y1="28" x2="180" y2="192" stroke="currentColor" stroke-width="2"/>
+    <text x="338" y="92" font-size="13" text-anchor="end">X軸</text>
+    <text x="188" y="192" font-size="13">Y軸</text>
+    <use href="#fg" transform="translate(196,30)" fill="currentColor"/>
+    <use href="#fg" transform="translate(164,30) scale(-1,1)" fill="var(--sub)"/>
+    <use href="#fg" transform="translate(164,170) scale(-1,-1)" fill="var(--stamp)"/>
+    <text x="238" y="64" font-size="15">① 元のF</text>
+    <text x="116" y="64" font-size="15" text-anchor="middle">②</text>
+    <text x="198" y="146" font-size="15" style="fill:var(--stamp)">③ スクリーンの像</text>
+    <text x="180" y="13" font-size="12" text-anchor="middle">Y軸で鏡 ＝ 左右ぎゃく</text>
+    <path d="M214 22 H146 M152 16 L144 22 L152 28" fill="none" stroke="var(--stamp)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M96 60 V138 M90 130 L96 140 L102 130" fill="none" stroke="var(--stamp)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="88" y="92" font-size="12" text-anchor="end">X軸で鏡</text>
+    <text x="88" y="108" font-size="12" text-anchor="end">＝上下ぎゃく</text></svg>`,
+  fig:`<svg viewBox="0 0 330 150" width="330" role="img" aria-label="物体は上向き、スクリーンの像は下向き">
+    <line x1="10" y1="75" x2="320" y2="75" stroke="var(--line)" stroke-width="2"/>
+    <ellipse cx="150" cy="75" rx="10" ry="55" fill="none" stroke="currentColor" stroke-width="3"/>
+    <path d="M60 75 V32" stroke="var(--stamp)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M48 46 L60 30 L72 46" fill="none" stroke="var(--stamp)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="60" y="22" font-size="14" text-anchor="middle">物体</text>
+    <line x1="285" y1="14" x2="285" y2="136" stroke="currentColor" stroke-width="4"/>
+    <path d="M285 75 V118" stroke="var(--stamp)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M273 104 L285 120 L297 104" fill="none" stroke="var(--stamp)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="232" y="104" font-size="14" text-anchor="middle">さかさま</text>
+    <text x="150" y="146" font-size="13" text-anchor="middle">凸レンズ</text>
+    <text x="285" y="10" font-size="13" text-anchor="middle">スクリーン</text></svg>`,
+  warn:'<b>ただし：</b>虫めがねでのぞいたときに見える大きな像（虚像）は、さかさまじゃなく<b>同じ向き</b>。「スクリーンにうつる」と書いてあるときだけ、さかさま。',
+  q:{t:'凸レンズを使って、スクリーンに「F」の形の光をうつした。うつる像は？',
+     o:[fsvg(1,-1)+'上下だけぎゃく', fsvg(1,1)+'ふつうのF', fsvg(-1,-1)+'上下左右ぎゃく', fsvg(-1,1)+'左右だけぎゃく'],a:2,
+     why:'Fを①Y軸で鏡（左右ぎゃく）→ ②X軸で鏡（上下ぎゃく）。2回ひっくり返すと、紙を半回転させた形＝上下左右ぎゃく。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'凸レンズで「同じ大きさ」の像',
+  trick:'「同じ大きさの像」＝ レンズから<mark>焦点距離の2倍</mark>の位置',
+  sub:'物体もスクリーンも、レンズから焦点距離の2倍。だから 焦点距離 ＝ レンズからの距離 ÷ 2。',
+  fig:`<svg viewBox="0 0 340 160" width="340" role="img" aria-label="物体もスクリーンも、レンズから焦点距離の2倍の位置。像は同じ大きさでさかさま">
+    <line x1="10" y1="75" x2="330" y2="75" stroke="currentColor" stroke-width="2"/>
+    <ellipse cx="170" cy="75" rx="8" ry="50" fill="var(--card)" stroke="currentColor" stroke-width="3"/>
+    <text x="170" y="16" font-size="12" text-anchor="middle">凸レンズ</text>
+    <g fill="currentColor"><circle cx="90" cy="75" r="3.5"/><circle cx="130" cy="75" r="3.5"/><circle cx="210" cy="75" r="3.5"/><circle cx="250" cy="75" r="3.5"/></g>
+    <text x="90" y="94" font-size="12" text-anchor="middle">2f</text><text x="130" y="94" font-size="12" text-anchor="middle">f</text>
+    <text x="210" y="66" font-size="12" text-anchor="middle">f</text><text x="250" y="66" font-size="12" text-anchor="middle">2f</text>
+    <path d="M90 75 V36 M83 46 L90 34 L97 46" fill="none" stroke="var(--stamp)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M250 75 V114 M243 104 L250 116 L257 104" fill="none" stroke="var(--stamp)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="90" y="26" font-size="13" text-anchor="middle">物体</text>
+    <text x="250" y="134" font-size="13" text-anchor="middle">像（同じ大きさ）</text>
+    <text x="170" y="154" font-size="12" text-anchor="middle">例：レンズから20cmなら、焦点距離は10cm</text></svg>`,
+  ex:[['物体を、焦点距離の2倍より遠くに置くと、像の大きさは？','物体より小さくなる'],
+      ['焦点距離と2倍の間（fと2fの間）に置くと？','物体より大きくなる'],
+      ['焦点距離より近く（レンズの内側）に置くと？','スクリーンに像はうつらない（のぞくと、大きな像が見える）']],
+  warn:'<b>ただし：</b>物体からスクリーンまでの「全部の距離」を聞かれたら、焦点距離の<b>4倍</b>（2倍＋2倍）。たとえば全部で40cmなら、焦点距離は10cm。',
+  q:{t:'凸レンズの前20cmのところに物体を置くと、レンズの反対側20cmのところに、物体と同じ大きさの像がスクリーンにうつった。このレンズの焦点距離は？',
+     o:['5cm','10cm','20cm','40cm'],a:1,
+     why:'同じ大きさの像ができるのは、焦点距離の2倍の位置。20cm ＝ 焦点距離 × 2 なので、焦点距離は10cm。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'全反射が起こるのは？',
+  trick:'全反射は<mark>ガラスから空気</mark>へ出ようとするときだけ',
+  sub:'入射角を大きくしていくと、ある角度から光が空気中に出られなくなり、境目で鏡のようにぜんぶ反射する。半円形のガラスの実験でよく出る。',
+  fig:`<svg viewBox="0 0 330 172" width="330" role="img" aria-label="半円形ガラスの中で光が境目ですべて反射する">
+    <defs><marker id="zh1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--stamp)"/></marker></defs>
+    <path d="M95 70 H235 A70 70 0 0 1 95 70 Z" fill="var(--hi)" fill-opacity=".35" stroke="currentColor" stroke-width="3"/>
+    <path d="M165 14 V140" stroke="var(--sub)" stroke-width="2" stroke-dasharray="5 4"/>
+    <line x1="108" y1="110" x2="161" y2="72" stroke="var(--stamp)" stroke-width="4" marker-end="url(#zh1)"/>
+    <line x1="165" y1="70" x2="218" y2="108" stroke="var(--stamp)" stroke-width="4" marker-end="url(#zh1)"/>
+    <text x="30" y="40" font-size="14">空気</text>
+    <text x="165" y="132" font-size="14" text-anchor="middle">ガラス</text>
+    <text x="272" y="48" font-size="13" text-anchor="middle" style="fill:var(--stamp)">外に出られない</text>
+    <text x="58" y="104" font-size="13" text-anchor="middle">入射角</text>
+    <text x="272" y="104" font-size="13" text-anchor="middle">反射角</text>
+    <text x="165" y="166" font-size="13" text-anchor="middle">入射角 ＝ 反射角</text></svg>`,
+  ex:[['全反射のとき、反射した光の角度は？','入射角 ＝ 反射角（反射の法則）'],
+      ['全反射を利用したものは？','光ファイバー（光を中にとじこめて伝える）']],
+  warn:'<b>ただし：</b>空気からガラスに入る光には、全反射は起こらない。「ガラス（水）から空気へ」の向きだけ。実験では半円形のガラスがよく使われるけど、台形のガラスや水そうで出ることもある。',
+  q:{t:'全反射が起こるのは、どちら？',o:['ア　光が空気中からガラスの中へ進むとき','イ　光がガラスの中から空気中へ進むとき'],a:1,
+     why:'全反射は、ガラスや水から空気へ出ようとするときだけ。空気から入るときは起こらない。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'動滑車を使うと',
+  trick:'動滑車 → ひもを引く長さは<mark>2倍</mark>、引く力は<mark>半分</mark>',
+  sub:'力が半分になるかわりに、2倍の長さを引かないといけない。得はしない（仕事は同じ）。',
+  fig:`<svg viewBox="0 0 330 190" width="330" role="img" aria-label="動滑車。ひもを引く長さは2倍、引く力は半分">
+    <rect x="40" y="4" width="200" height="8" fill="currentColor"/>
+    <text x="8" y="12" font-size="12">天井</text>
+    <path d="M130 12 V92" stroke="currentColor" stroke-width="3"/>
+    <circle cx="160" cy="92" r="30" fill="var(--card)" stroke="currentColor" stroke-width="3"/>
+    <circle cx="160" cy="92" r="4" fill="currentColor"/>
+    <path d="M190 92 V30" stroke="currentColor" stroke-width="3"/>
+    <path d="M183 42 L190 28 L197 42" fill="none" stroke="var(--stamp)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M160 96 V132" stroke="currentColor" stroke-width="3"/>
+    <rect x="130" y="132" width="60" height="40" rx="6" fill="var(--hi)" stroke="currentColor" stroke-width="3"/>
+    <text x="160" y="158" font-size="14" text-anchor="middle" style="fill:var(--hi-ink)">荷物</text>
+    <text x="214" y="64" font-size="14">引く長さ＝2倍</text>
+    <text x="214" y="88" font-size="14">引く力＝半分</text></svg>`,
+  ex:[['荷物を20cm引き上げるには、ひもを何cm引く？','40cm（2倍）'],
+      ['重さ10Nの荷物を引き上げる力は？','5N（半分）'],
+      ['動滑車を使ったときの仕事の大きさは、使わないときと比べて？','かわらない（仕事の原理）'],
+      ['定滑車は？','力の向きを変えるだけ。力の大きさも、引く長さも同じ']],
+  warn:'<b>ただし：</b>これは動滑車が<b>1個</b>で、滑車やひもの重さ・摩擦を考えないとき。ふつうの問題には「考えないものとする」と書いてある。',
+  q:{t:'動滑車を1個使って、重さ6Nの荷物を30cm引き上げた。ひもを引いた力と、ひもを引いた長さは？（滑車の重さや摩擦は考えない）',
+     o:['3N、60cm','3N、15cm','12N、15cm','6N、30cm'],a:0,
+     why:'力は半分の3N、長さは2倍の60cm。力 × 長さ（仕事）は、どちらも同じ。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'音の波（オシロスコープ）の比べ方',
+  trick:'<mark>高い</mark>音 ＝ 波が<mark>ギューギュー</mark>（数が多い）<br><mark>大きい</mark>音 ＝ 波が<mark>高い</mark>（縦に大きい）',
+  sub:'横にならぶ波の数で「高い・低い」、縦の大きさで「大きい・小さい」を見る。',
+  fig:`<div class="wv">${wcell(18,2,'低い音<br>（波の数が少ない）')}${wcell(18,5,'高い音<br>（波の数が多い）')}${wcell(8,3,'小さい音<br>（波が低い）')}${wcell(28,3,'大きい音<br>（波が高い）')}</div>`,
+  ex:[['モノコードの弦を短くすると？','高い音になる（波の数がふえる）'],
+      ['弦を強くはじくと？','大きい音になる（波が高くなる）'],
+      ['1秒間に振動する回数を何という？','振動数（単位はヘルツ・Hz）']],
+  warn:'<b>ただし：</b>画面ごとに横軸（時間）の目盛りがちがうときは、波の数だけでは比べられない。目盛りが同じ画面どうしで比べよう。',
+  q:{t:'4つの画面は、同じ目盛りで音の波を表している。いちばん高くて大きい音は？',
+     html:`<div class="fig"><div class="wv">${wcell(10,2,'A')}${wcell(28,2,'B')}${wcell(10,5,'C')}${wcell(28,5,'D')}</div></div>`,
+     o:['A','B','C','D'],a:3,
+     why:'高い音＝波の数が多い、大きい音＝波が高い。両方そろっているのはD。'}
+},
+{
+  tag:'語呂合わせ', eff:3, title:'地震の波、P波とS波',
+  trick:'<mark>P</mark>は<mark>ぷるぷる</mark>（小さい・先）<br><mark>S</mark>は<mark>ずしーん</mark>（大きい・後）',
+  sub:'ぷるぷる＝初期微動（P波）、ずしーん＝主要動（S波）。ゆれの大きさも、とどく順番も、これで決まる。',
+  fig:`<svg viewBox="0 0 300 145" width="300" role="img" aria-label="地震計の記録。はじめに小さなゆれ（P波）、あとから大きなゆれ（S波）">
+    <polyline fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" points="10,70 60,70 64,62 68,78 72,62 76,78 80,62 84,78 88,62 92,78 96,62 100,78 104,62 108,78 112,62 116,78 120,70 128,70 132,38 138,102 144,30 150,110 156,40 162,98 168,48 174,92 180,54 186,88 192,60 198,82 204,66 210,76 220,70 290,70"/>
+    <text x="80" y="104" font-size="14" text-anchor="middle" style="fill:var(--stamp)">P波</text>
+    <text x="80" y="122" font-size="14" text-anchor="middle">ぷるぷる</text>
+    <text x="268" y="34" font-size="14" text-anchor="middle" style="fill:var(--stamp)">S波</text>
+    <text x="268" y="52" font-size="14" text-anchor="middle">ずしーん</text>
+    <text x="290" y="138" font-size="12" text-anchor="end">時間 →</text></svg>`,
+  warn:'<b>ただし：</b>速いのはP波（だから先にとどく）。P波とS波がとどく時間の差（初期微動継続時間）は、震源から遠いほど長くなり、<b>比例</b>の関係。',
+  q:{t:'地震のとき、はじめに小さくゆれる「初期微動」を伝える波は？',o:['P波','S波'],a:0,
+     why:'Pはぷるぷる（小さい・先）。大きなゆれ（主要動）を伝えるのがS波。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'寒冷前線が通りすぎたあと',
+  trick:'寒冷前線が通ると、気温は<mark>急に下がり</mark>、風は<mark>北寄り</mark>に',
+  sub:'寒冷前線は、冷たい空気をつれてくる前線。冷たい空気 ＝ 北の風。通る前は南寄りの風。',
+  fig:`<table><tr><th></th><th>通過後の気温</th><th>通過後の風</th><th>雨のふり方</th></tr>
+    <tr class="hl"><td>寒冷前線</td><td>下がる</td><td>北寄り</td><td>せまい範囲に強い雨</td></tr>
+    <tr><td>温暖前線</td><td>上がる</td><td>南寄り</td><td>広い範囲に弱い雨</td></tr></table>`,
+  ex:[['寒冷前線が通ると、風向きは？','南寄り（南西）から北寄り（北西）に変わる'],
+      ['寒冷前線にできる雲は？','積乱雲（短い時間に強い雨・雷）'],
+      ['温暖前線にできる雲は？','乱層雲（広い範囲に、長い時間、弱い雨）']],
+  warn:'<b>ただし：</b>温暖前線は反対。通過後は気温が上がり、風は南寄りになる。「寒冷＝下がる・北」「温暖＝上がる・南」とセットで。',
+  q:{t:'ある地点を寒冷前線が通過した。通過後、気温と風向きはどうなる？',
+     o:['気温が下がり、風向きは南寄りから北寄りに変わる','気温が上がり、風向きは北寄りから南寄りに変わる','気温も風向きもほとんど変わらない'],a:0,
+     why:'寒冷前線は冷たい空気をつれてくる。だから通過後は、気温が下がり、北寄りの風になる。'}
+},
+{
+  tag:'語呂合わせ', eff:3, title:'示相化石 ＝ 昔の環境がわかる化石',
+  trick:'<mark>サンゴ</mark>＝温かい浅い海　<mark>アサリ</mark>＝浅い海<br><mark>ホタテ</mark>＝冷たい海　<mark>シジミ</mark>＝湖や河口',
+  sub:'示「相」化石は場所のようす（環境）、示「準」化石は時代の基準（年代）がわかる。',
+  fig:`<table><tr><th>化石</th><th>わかる環境</th></tr>
+    <tr><td>サンゴ</td><td>温かくて浅い海</td></tr><tr><td>アサリ</td><td>浅い海</td></tr>
+    <tr><td>ホタテ</td><td>冷たい海</td></tr><tr><td>シジミ</td><td>湖や河口</td></tr></table>`,
+  ex:[['示相化石でわかることは？','その地層ができた当時の環境'],
+      ['地層の年代がわかる化石は？','示準化石（アンモナイト＝中生代 など）']],
+  warn:'<b>ただし：</b>アンモナイト・サンヨウチュウ・ビカリアは示相ではなく<b>示準化石</b>（時代がわかる）。示相と示準を取りちがえないように。',
+  q:{t:'地層の中からサンゴの化石が見つかった。この地層ができたころの環境は？',o:['冷たい深い海','温かくて浅い海','湖や河口'],a:1,
+     why:'サンゴは、温かくて浅い海にすむ。このように環境がわかる化石を示相化石という。'}
+},
+{
+  tag:'決め打ち', eff:2, title:'子をうむ・うまない、の分け方',
+  trick:'<mark>胎生</mark>（親の体内で育ててうむ）は<mark>哺乳類</mark>だけ',
+  sub:'あとは ぜんぶ 卵生。',
+  fig:`<table><tr><th>なかま</th><th>子のうまれ方</th></tr>
+    <tr><td>魚類</td><td>卵生</td></tr><tr><td>両生類</td><td>卵生</td></tr>
+    <tr><td>ハチュウ類</td><td>卵生</td></tr><tr><td>鳥類</td><td>卵生</td></tr>
+    <tr class="hl"><td>哺乳類</td><td>胎生</td></tr></table>`,
+  warn:'<b>ただし：</b>じつは一部のサメなどには例外もいる。でも中学のテストでは「胎生＝哺乳類」でOK。イルカ・クジラ・コウモリも哺乳類。',
+  q:{t:'子を母親の体内である程度育ててからうむ（胎生）のは？',o:['魚類','ハチュウ類','哺乳類'],a:2,
+     why:'胎生は哺乳類だけ。ほかのなかまは卵生。'}
+},
+{
+  tag:'語呂合わせ', eff:3, title:'両生類のなかまと、子・親の呼吸',
+  trick:'ウーパールーパー<mark>解散</mark>！<br><mark>か</mark>（カエル）<mark>い</mark>（イモリ）<mark>さん</mark>（サンショウウオ）',
+  sub:'子は<mark>偉い</mark>！＝子は「えら＋皮膚」で呼吸<br>おやが<mark>はい</mark>はいしている＝親は「肺＋皮膚」で呼吸<br>ウーパールーパーはサンショウウオのなかまなので、別に覚えなくてOK。',
+  fig:`<table><tr><th></th><th>呼吸のしかた</th><th>おぼえ方</th></tr>
+    <tr><td>子<br>（オタマジャクシなど）</td><td>えら ＋ 皮膚</td><td>子は偉い！</td></tr>
+    <tr><td>親<br>（カエルなど）</td><td>肺 ＋ 皮膚</td><td>おやがはいはい</td></tr></table>`,
+  warn:'<b>ただし：</b>子も親も皮膚呼吸はする。かわるのは「えら → 肺」だけ。',
+  q:{t:'カエルの子（オタマジャクシ）は、どうやって呼吸している？',o:['えらと皮膚','肺と皮膚','肺だけ'],a:0,
+     why:'子は偉い！＝えら＋皮膚。親になると、おやがはいはい＝肺＋皮膚になる。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'「ふえる？ へる？ かわらない？」',
+  trick:'この3択は、<mark>かわらない</mark>',
+  fig:`<table><tr><th>場面</th><th>答え</th></tr>
+    <tr><td>ふたをした容器の中の化学変化（全体の質量）</td><td style="color:var(--stamp);font-weight:900">かわらない</td></tr>
+    <tr><td>氷がとけて水になった（質量）</td><td style="color:var(--stamp);font-weight:900">かわらない</td></tr>
+    <tr><td>てこ・動滑車・斜面を使った（仕事の大きさ）</td><td style="color:var(--stamp);font-weight:900">かわらない</td></tr>
+    <tr><td>摩擦や空気の抵抗がないとき（力学的エネルギーの合計）</td><td style="color:var(--stamp);font-weight:900">かわらない</td></tr></table>`,
+  warn:'<b>ただし：</b>ふたをあけた容器で、気体が出ていく反応（炭酸水素ナトリウムの加熱、石灰石にうすい塩酸 など）は、気体がにげるので<b>へる</b>。「ふたをあけた」「気体が出た」と書いてあるかだけ、確かめよう。',
+  q:{t:'ふたをした容器の中で、うすい塩酸と炭酸水素ナトリウムを反応させた。反応の前後で、容器全体の質量は？',o:['ふえる','へる','かわらない'],a:2,
+     why:'ふたをしてあれば、出てきた気体も容器の中にいる。だから全体の質量はかわらない（質量保存の法則）。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'グラフの「平ら」なところ',
+  trick:'グラフの<mark>平ら</mark>なところ ＝ <mark>状態変化の最中</mark>',
+  sub:'0℃で平ら＝とけている最中。100℃で平ら＝ふっとうしている最中。',
+  fig:gsvg(true),
+  ex:[['B〜Cの間、氷はどうなっている？','とけている最中（100℃で平らなら、ふっとうしている最中）'],
+      ['平らなところの温度を何という？','0℃は融点、100℃は沸点'],
+      ['温度が上がらないのはなぜ？（記述）','加えた熱が、とかすために使われているから（ふっとうなら「ふっとうさせるために」）']],
+  warn:'<b>ただし：</b>ななめのところ（A〜B、C〜D）は状態変化ではなく、ふつうに温度が上がっているだけ。平らなところだけが「変化の最中」。',
+  q:{t:'氷を加熱し続けたときの、時間と温度のグラフ。B〜Cの間、氷はどうなっている？',html:`<div class="fig">${gsvg(false)}</div>`,
+     o:['とけている最中','温度が上がっている最中','すべて水蒸気になった'],a:0,
+     why:'平らなところ ＝ 状態変化の最中。0℃で平らだから、氷がとけている最中。（C〜Dのななめは、水の温度が上がっているところ）'}
+},
+{
+  tag:'決め打ち', eff:3, title:'肺につながる血管',
+  trick:'<mark>肺</mark>がつく血管は、名前と<mark>ぎゃく</mark>',
+  sub:'肺動脈は静脈血、肺静脈は動脈血。ここだけぎゃく。<br>ついでに、<mark>静脈には弁がある</mark>（動脈にはない）。',
+  fig:`<svg viewBox="0 0 360 160" width="360" role="img" aria-label="心臓から肺へ肺動脈、肺から心臓へ肺静脈">
+    <rect x="10" y="30" width="90" height="115" rx="12" fill="var(--card)" stroke="currentColor" stroke-width="3"/>
+    <text x="55" y="94" font-size="18" text-anchor="middle">心臓</text>
+    <rect x="250" y="30" width="100" height="115" rx="12" fill="var(--card)" stroke="currentColor" stroke-width="3"/>
+    <text x="300" y="94" font-size="18" text-anchor="middle">肺</text>
+    <text x="175" y="50" font-size="14" text-anchor="middle">肺動脈（静脈血）</text>
+    <line x1="104" y1="62" x2="238" y2="62" stroke="#3a74d8" stroke-width="7" stroke-linecap="round"/>
+    <polyline points="230,50 246,62 230,74" fill="none" stroke="#3a74d8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="175" y="86" font-size="12" text-anchor="middle">酸素が少ない血液</text>
+    <text x="175" y="110" font-size="14" text-anchor="middle">肺静脈（動脈血）</text>
+    <line x1="246" y1="122" x2="112" y2="122" stroke="#d62839" stroke-width="7" stroke-linecap="round"/>
+    <polyline points="120,110 104,122 120,134" fill="none" stroke="#d62839" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="175" y="148" font-size="12" text-anchor="middle">酸素が多い血液</text></svg>`,
+  fig2t:'静脈の弁：血液がぎゃくもどりしないための、ドアのようなもの',
+  fig2:`<svg viewBox="0 0 330 130" width="330" role="img" aria-label="静脈の中の弁が、血液のぎゃくもどりを防ぐ">
+    <rect x="10" y="30" width="310" height="60" rx="6" fill="none" stroke="currentColor" stroke-width="3"/>
+    <path d="M150 30 L192 54 M150 90 L192 66" fill="none" stroke="var(--stamp)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M30 60 H120 M108 50 L122 60 L108 70" fill="none" stroke="#3a74d8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M300 60 H236 M246 52 L236 60 L246 68" fill="none" stroke="var(--sub)" stroke-width="4" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="268" y="82" font-size="24" text-anchor="middle" style="fill:var(--stamp)">×</text>
+    <text x="170" y="116" font-size="14" text-anchor="middle" style="fill:var(--stamp)">弁</text>
+    <text x="320" y="20" font-size="13" text-anchor="end">心臓のほうへ →</text></svg>`,
+  warn:'<b>ただし：</b>ぎゃくなのは「肺」がつく血管だけ。大動脈は動脈血（酸素が多い）、大静脈は静脈血（酸素が少ない）で、名前どおり。',
+  q:{t:'酸素を多くふくむ血液（動脈血）が流れているのは、どれ？',o:['肺動脈','肺静脈','大静脈'],a:1,
+     why:'肺がつく血管は、名前とぎゃく。肺動脈は静脈血、肺静脈は動脈血。大静脈は静脈血。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'顕微鏡の倍率を上げると',
+  trick:'倍率を上げると、<mark>暗く</mark>なり、<mark>せまく</mark>なる',
+  sub:'見える細胞の数も少なくなる。そのかわり、1つ1つは大きく見える。',
+  fig:`<svg viewBox="0 0 340 170" width="340" role="img" aria-label="低倍率は明るく広く細胞が小さく多い。高倍率は暗くせまく細胞が大きく少ない">
+    <circle cx="82" cy="70" r="55" fill="var(--hi)" fill-opacity=".55" stroke="currentColor" stroke-width="3"/>
+    <g fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="58" cy="48" r="9"/><circle cx="84" cy="38" r="9"/><circle cx="108" cy="52" r="9"/>
+      <circle cx="68" cy="74" r="9"/><circle cx="96" cy="76" r="9"/><circle cx="80" cy="98" r="9"/><circle cx="55" cy="96" r="9"/></g>
+    <circle cx="258" cy="70" r="55" fill="var(--ink)" fill-opacity=".38" stroke="currentColor" stroke-width="3"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5">
+      <circle cx="242" cy="58" r="22"/><circle cx="274" cy="90" r="22"/></g>
+    <text x="170" y="56" font-size="12" text-anchor="middle">倍率を</text>
+    <text x="170" y="71" font-size="12" text-anchor="middle">上げる</text>
+    <path d="M148 84 H192 M181 76 L192 84 L181 92" fill="none" stroke="var(--stamp)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="82" y="142" font-size="14" text-anchor="middle">低倍率</text>
+    <text x="82" y="160" font-size="13" text-anchor="middle">明るい・広い</text>
+    <text x="258" y="142" font-size="14" text-anchor="middle">高倍率</text>
+    <text x="258" y="160" font-size="13" text-anchor="middle">暗い・せまい</text></svg>`,
+  ex:[['見える細胞の数は？','少なくなる（1つ1つは大きく見える）'],
+      ['顕微鏡の倍率は、どう求める？','接眼レンズの倍率 × 対物レンズの倍率'],
+      ['暗くて見えにくいとき、明るくするには？','しぼりを開く、または反射鏡の向きを変える']],
+  warn:'<b>ただし：</b>暗くなるのは、倍率を上げたときの自然な変化。見えにくいときは、しぼりや反射鏡で明るさをなおす、という別の問題になる。',
+  q:{t:'顕微鏡の倍率を、低倍率から高倍率に変えた。視野の明るさと広さは、どうなる？',
+     o:['暗くなり、せまくなる','明るくなり、せまくなる','暗くなり、広くなる','明るくなり、広くなる'],a:0,
+     why:'倍率を上げると、見える範囲はせまくなり、光も少なくなって暗くなる。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'葉をエタノールにつける実験',
+  trick:'あたためたエタノールにつける目的は、<mark>葉の緑色をぬく</mark>ため',
+  sub:'緑色が残っていると、ヨウ素液で青紫色になったかどうかが見えにくい。だから先に色をぬく。',
+  fig:`<svg viewBox="0 0 340 140" width="340" role="img" aria-label="お湯、エタノール、水、ヨウ素液の順に行う">
+    <g fill="var(--card)" stroke="currentColor" stroke-width="3">
+      <rect x="4" y="22" width="72" height="50" rx="8"/><rect x="176" y="22" width="72" height="50" rx="8"/><rect x="262" y="22" width="72" height="50" rx="8"/></g>
+    <rect x="90" y="22" width="72" height="50" rx="8" fill="var(--hi)" stroke="currentColor" stroke-width="3"/>
+    <text x="40" y="52" font-size="14" text-anchor="middle">お湯</text>
+    <text x="126" y="52" font-size="13" text-anchor="middle" style="fill:var(--hi-ink)">エタノール</text>
+    <text x="212" y="52" font-size="14" text-anchor="middle">水</text>
+    <text x="298" y="52" font-size="13" text-anchor="middle">ヨウ素液</text>
+    <text x="40" y="14" font-size="12" text-anchor="middle">①</text><text x="126" y="14" font-size="12" text-anchor="middle">②</text>
+    <text x="212" y="14" font-size="12" text-anchor="middle">③</text><text x="298" y="14" font-size="12" text-anchor="middle">④</text>
+    <g fill="none" stroke="var(--stamp)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M78 47 H88 M84 43 L88 47 L84 51"/><path d="M164 47 H174 M170 43 L174 47 L170 51"/><path d="M250 47 H260 M256 43 L260 47 L256 51"/></g>
+    <text x="40" y="94" font-size="12" text-anchor="middle">葉を</text><text x="40" y="110" font-size="12" text-anchor="middle">やわらかく</text>
+    <text x="126" y="94" font-size="12" text-anchor="middle">緑色を</text><text x="126" y="110" font-size="12" text-anchor="middle">ぬく</text>
+    <text x="212" y="94" font-size="12" text-anchor="middle">水で</text><text x="212" y="110" font-size="12" text-anchor="middle">洗う</text>
+    <text x="298" y="94" font-size="12" text-anchor="middle">青紫色＝</text><text x="298" y="110" font-size="12" text-anchor="middle">デンプンあり</text></svg>`,
+  ex:[['湯につける目的は？','葉をやわらかくして、ヨウ素液がしみこみやすくする'],
+      ['ヨウ素液をつけて青紫色になったら？','デンプンがある'],
+      ['実験の前に、葉を一晩暗いところに置くのはなぜ？','葉にもとからあるデンプンをなくすため']],
+  warn:'<b>ただし：</b>「湯」と「エタノール」の目的をまぜない。<b>湯＝葉をやわらかく</b>、<b>エタノール＝緑色をぬく</b>。エタノールは火がつきやすいので、直接火にかけず、湯であたためる。',
+  q:{t:'光合成の実験で、葉を湯につけたあと、あたためたエタノールにつけた。エタノールにつけた目的は？',
+     o:['葉をやわらかくするため','葉の緑色をぬくため','葉にデンプンをつくらせるため'],a:1,
+     why:'エタノールで緑色をぬくと、ヨウ素液をつけたときの色の変化（青紫色）が見やすくなる。やわらかくするのは湯のはたらき。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'植物の呼吸',
+  trick:'植物は<mark>昼も夜も</mark>呼吸している',
+  sub:'光合成は光があたっているとき（昼）だけ。呼吸は一日中ずっと。',
+  fig:`<table><tr><th></th><th>光合成</th><th>呼吸</th></tr>
+    <tr><td>昼（光あり）</td><td>する</td><td style="background:var(--hi);color:var(--hi-ink);font-weight:900">する</td></tr>
+    <tr><td>夜（光なし）</td><td>しない</td><td style="background:var(--hi);color:var(--hi-ink);font-weight:900">する</td></tr></table>`,
+  ex:[['夜、植物が出す気体は？','二酸化炭素（酸素をとり入れて、二酸化炭素を出す）'],
+      ['昼、ふつうは酸素が出て、二酸化炭素がへるのはなぜ？','光合成のほうが、呼吸より活発だから'],
+      ['光合成をするのは、どんなとき？','光があたっているとき']],
+  warn:'<b>ただし：</b>「昼は光合成、夜は呼吸」と思っている子が多い。<b>昼は光合成も呼吸も</b>している。「昼は呼吸をしていない」と書いてある選択肢は×。',
+  q:{t:'植物の呼吸について、正しいのは？',o:['昼だけ呼吸している','夜だけ呼吸している','昼も夜も呼吸している'],a:2,
+     why:'植物も生き物なので、呼吸は一日中している。光合成は、光があたっているときだけ。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'食物連鎖のピラミッド',
+  trick:'いちばん数が多いのは<mark>植物</mark>（生産者）',
+  sub:'上にいくほど数がへる。肉食動物がいちばん少ない。',
+  fig:`<svg viewBox="0 0 330 170" width="330" role="img" aria-label="食物連鎖のピラミッド。下から植物、草食動物、肉食動物">
+    <polygon points="165,12 215,58 115,58" fill="var(--card)" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+    <polygon points="115,58 215,58 265,104 65,104" fill="var(--soft)" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+    <polygon points="65,104 265,104 315,150 15,150" fill="var(--hi)" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+    <text x="165" y="46" font-size="13" text-anchor="middle">肉食動物</text>
+    <text x="165" y="86" font-size="14" text-anchor="middle">草食動物</text>
+    <text x="165" y="132" font-size="15" text-anchor="middle" style="fill:var(--hi-ink)">植物（生産者）</text>
+    <text x="240" y="26" font-size="12">少ない</text>
+    <text x="292" y="142" font-size="12" text-anchor="middle" style="fill:var(--hi-ink)">多い</text></svg>`,
+  ex:[['肉食動物が急にふえると、まず草食動物は？','へる'],
+      ['草食動物がへったあと、植物は？','ふえる'],
+      ['ふえたりへったりしても、長い目で見ると？','もとのつり合いにもどる']],
+  warn:'<b>ただし：</b>これは「ピラミッドの中で、いちばん多いのは？」と聞かれたとき。生物がふえたりへったりする問題は、「食べる側がふえると、食べられる側はへる」で考える。',
+  q:{t:'ある草原で、植物・草食動物・肉食動物の数を調べた。いちばん数が多いのは？',o:['植物','草食動物','肉食動物'],a:0,
+     why:'食べられる側ほど数が多い。いちばん下の植物（生産者）がいちばん多い。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'「反射」ってどれ？',
+  trick:'<mark>思わず</mark>・<mark>とっさに</mark>・<mark>無意識に</mark> ＝ 反射',
+  sub:'定番は3つ。熱いものにさわって手を引っこめる。目にゴミが入ってまばたき。ひざの下をたたくと足が上がる。',
+  fig:`<svg viewBox="0 0 340 160" width="340" role="img" aria-label="反射の信号は、感覚神経からせき髄を通り、運動神経から筋肉へ。脳は通らない">
+    <rect x="4" y="76" width="64" height="48" rx="8" fill="var(--card)" stroke="currentColor" stroke-width="3"/>
+    <rect x="138" y="76" width="64" height="48" rx="8" fill="var(--hi)" stroke="currentColor" stroke-width="3"/>
+    <rect x="272" y="76" width="64" height="48" rx="8" fill="var(--card)" stroke="currentColor" stroke-width="3"/>
+    <text x="36" y="105" font-size="14" text-anchor="middle">皮ふ</text>
+    <text x="170" y="105" font-size="14" text-anchor="middle" style="fill:var(--hi-ink)">せき髄</text>
+    <text x="304" y="105" font-size="14" text-anchor="middle">筋肉</text>
+    <g fill="none" stroke="var(--stamp)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M70 100 H134 M124 94 L134 100 L124 106"/><path d="M204 100 H268 M258 94 L268 100 L258 106"/></g>
+    <text x="102" y="90" font-size="11" text-anchor="middle">感覚神経</text>
+    <text x="236" y="90" font-size="11" text-anchor="middle">運動神経</text>
+    <rect x="134" y="8" width="72" height="34" rx="17" fill="var(--soft)" stroke="currentColor" stroke-width="2.5" stroke-dasharray="5 4"/>
+    <text x="170" y="30" font-size="14" text-anchor="middle">脳</text>
+    <path d="M170 76 V46" stroke="var(--sub)" stroke-width="3" stroke-dasharray="5 4"/>
+    <text x="276" y="30" font-size="12" text-anchor="middle">あとから脳にも伝わる</text>
+    <text x="170" y="150" font-size="13" text-anchor="middle">命令を出すのは、脳ではなくせき髄</text></svg>`,
+  ex:[['反射で、命令を出すのは？','せき髄（脳ではない）'],
+      ['反射の信号の通り道は？','刺激 → 感覚神経 → せき髄 → 運動神経 → 筋肉'],
+      ['反射は、何のために役に立つ？','危険から、すばやく体を守るため']],
+  warn:'<b>ただし：</b>「暗いところで瞳が大きくなる」「食べ物を口に入れるとだ液が出る」も、反射の例にしている教科書がある。迷ったら「考えるより先に、体が勝手に動いたか」で判断。「笛の合図で走り出した」「名前を呼ばれてふり向いた」は、考えて動く意識した反応。',
+  q:{t:'熱いやかんにさわって、思わず手を引っこめた。このとき、反射の命令を出したのは？',o:['脳','せき髄','筋肉'],a:1,
+     why:'反射では、脳に届く前に、せき髄が命令を出す。だからすばやく反応できる。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'メンデルのエンドウ：孫の代の数の比',
+  trick:'孫の代の「丸：しわ」は <mark>3 ： 1</mark>',
+  sub:'丸としわをかけ合わせる → 子は全部丸 → 子どうしをかけ合わせる → 孫は 丸：しわ ＝ 3：1。',
+  fig:`<div style="font-size:13px;text-align:center;margin-bottom:6px">子（Aa）どうしをかけ合わせると</div>
+    <table><tr><th></th><th>A</th><th>a</th></tr>
+    <tr><th>A</th><td>AA<br>丸</td><td>Aa<br>丸</td></tr>
+    <tr><th>a</th><td>Aa<br>丸</td><td style="background:var(--hi);color:var(--hi-ink);font-weight:900">aa<br>しわ</td></tr></table>
+    <div style="font-size:14px;text-align:center;margin-top:6px">丸3：しわ1　（AA：Aa：aa ＝ 1：2：1）</div>`,
+  ex:[['丸の純系としわの純系をかけ合わせたとき、子は？','すべて丸（優性の法則）'],
+      ['丸としわのうち、優性の形質は？','丸'],
+      ['孫の代で、AA：Aa：aa の比は？','1：2：1']],
+  warn:'<b>ただし：</b>3：1になるのは<b>子（Aa）どうし</b>をかけ合わせた孫の代。子（Aa）に、しわ（aa）をかけ合わせたときは、丸：しわ ＝ <b>1：1</b>。「だれとだれをかけ合わせたか」だけは、問題文を読もう。',
+  q:{t:'丸い種子の純系としわの種子の純系をかけ合わせて、子はすべて丸になった。この子どうしをかけ合わせてできた孫で、丸：しわの数の比は、およそ？',
+     o:['1：1','3：1','1：3','1：2：1'],a:1,
+     why:'子の遺伝子はAa。Aa × Aa で、AA・Aa・Aa・aa の4通り。丸が3、しわが1になる。'}
+},
+{
+  tag:'決め打ち', eff:3, title:'ジャガイモのいもでふやす',
+  trick:'いもでふやす ＝ <mark>無性生殖</mark> ＝ 親と<mark>同じ</mark>',
+  sub:'受精しないでふえるので、子は親と同じ形質（クローン）。種子（受精）からだと、親と同じとは限らない。',
+  fig:`<table><tr><th>ふえ方</th><th>例</th><th>子は親と</th></tr>
+    <tr class="hl"><td>無性生殖</td><td>ジャガイモのいも、アメーバ・ゾウリムシ（分裂）、ヒドラ（出芽）</td><td>同じ</td></tr>
+    <tr><td>有性生殖</td><td>種子（受粉・受精）、動物の卵と精子</td><td>ちがうこともある</td></tr></table>`,
+  ex:[['ジャガイモのいもを植えてできた子の形質は？','親と同じ'],
+      ['ジャガイモの種子から育てた子は？','親と同じとは限らない（受精しているから）'],
+      ['受精しないでふえる生殖を何という？','無性生殖']],
+  warn:'<b>ただし：</b>無性生殖は、ジャガイモだけじゃない。サツマイモ・イチゴ（ほふく茎）・挿し木、ゾウリムシやアメーバの分裂、ヒドラの出芽もそう。「受精しない」と書いてあれば無性生殖。',
+  q:{t:'ジャガイモのいもを植えて、新しい個体をふやした。できた個体の形質は、もとの親と比べてどうなる？',o:['親と同じ','親と全くちがう','半分は親と同じ'],a:0,
+     why:'いもでふやすのは無性生殖。受精がないので、親と同じ形質になる。'}
+}
+];
+
+const SHORT=['比例','溶解度','必ず・すべて','高気圧','低気圧の動き','BTB液','フェノールフタレイン','塩化コバルト紙','気体の見分け','金属と塩酸','においの気体','気体の集め方','加熱の色','黒い粉末','レンズ','同じ大きさ','全反射','動滑車','音の波','P波・S波','前線通過','示相化石','胎生','両生類','かわらない','グラフ平ら','肺の血管','顕微鏡','葉のエタノール','植物の呼吸','食物連鎖','反射','遺伝3対1','無性生殖'];
+if (SHORT.length === T.length) document.getElementById('nav').innerHTML = SHORT.map((s, i) => `<a href="#t${i}">${s}</a>`).join('') + '<a class="chip" href="#challenge">★ ランダム全問チャレンジ</a>';
+const list = document.getElementById('list');
+T.forEach((d, i) => {
+  const stars = '★'.repeat(d.eff) + '☆'.repeat(3 - d.eff);
+  const effTxt = ['','ときどき効く','よく効く','ほぼ効く'][d.eff];
+  const el = document.createElement('article');
+  el.className = 'card'; el.id = 't' + i;
+  el.innerHTML = `
+    <div class="meta"><span class="tag">${d.tag}</span><span class="eff">効く度 <i>${stars}</i> ${effTxt}</span></div>
+    <h2>${d.title}</h2>
+    <p class="trick">${d.trick}</p>
+    ${d.sub ? `<p class="sub">${d.sub}</p>` : ''}
+    <div class="fig">${d.fig}</div>
+    ${d.fig2 ? `<p class="figttl">${d.fig2t}</p><div class="fig">${d.fig2}</div>` : ''}
+    ${d.skit ? `<div class="skit"><b>コント</b>${d.skit.map(s => `<p><span class="who">${s[0]}</span>「${s[1]}」</p>`).join('')}</div>` : ''}
+    ${d.ex ? `<div class="exbox"><b>テストではこう出る</b>${d.ex.map(e => `<p>「${e[0]}」→ <span class="a">${e[1]}</span></p>`).join('')}</div>` : ''}
+    <p class="warn">${d.warn}</p>
+    <section class="quiz" id="quiz${i}"></section>`;
+  list.appendChild(el);
+  renderQuiz(i, d.q);
+});
+
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function initChallenge(box){
+  const N=T.length;
+  let order=[],pos=0,score=0,missed=[],full=true;
+  const getBest=()=>{try{return +localStorage.getItem('rika0-best')||0}catch(e){return 0}};
+  const setBest=s=>{try{if(s>getBest())localStorage.setItem('rika0-best',String(s))}catch(e){}};
+  const goTop=()=>{const rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;box.scrollIntoView({block:'start',behavior:rm?'auto':'smooth'});};
+  function intro(){
+    const b=getBest();
+    box.innerHTML=`<span class="lv" style="align-self:flex-start">FINAL</span>
+      <h2>ランダム全${N}問チャレンジ！</h2>
+      <p class="sub" style="font-size:16px">ここまでの裏技が、1つ1つ問題になって、ランダムな順番で出るよ。全部読んだら挑戦しよう。まちがえた問題は、さいごにもういちど見られる。</p>
+      ${b?`<p class="sub">これまでのベスト：${b} / ${N}</p>`:''}
+      <div class="btns"><button class="go" id="st">はじめる</button></div>`;
+    box.querySelector('#st').addEventListener('click',()=>{start(T.map((_,i)=>i),true);goTop();});
+  }
+  function start(idx,isFull){order=shuffle(idx);pos=0;score=0;missed=[];full=isFull;ask();}
+  function ask(){
+    const i=order[pos],q=T[i].q;
+    const keep=q.o.some(t=>/^[A-D]$/.test(t)||/^[アイウ]　/.test(t));
+    let opts=q.o.map((t,k)=>({t,k}));
+    if(!keep)opts=shuffle(opts);
+    box.innerHTML=`<div class="chead"><span>第${pos+1}問 / ${order.length}${full?'':'（やり直し）'}</span><span>せいかい ${score}</span></div>
+      <div class="prog" role="progressbar" aria-valuemin="0" aria-valuemax="${order.length}" aria-valuenow="${pos}"><i style="width:${pos/order.length*100}%"></i></div>
+      <p class="cq" tabindex="-1">${q.t}</p>${q.html?'<div style="overflow-x:auto">'+q.html+'</div>':''}
+      <div class="opts">${opts.map(o=>`<button class="opt" data-k="${o.k}">${o.t}</button>`).join('')}</div>
+      <div class="res" aria-live="polite"></div>
+      <button class="again" id="quit">やめる</button>`;
+    box.querySelector('.cq').focus({preventScroll:true});
+    box.querySelector('#quit').addEventListener('click',intro);
+    box.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>{
+      const k=+b.dataset.k,ok=k===q.a,last=pos+1>=order.length;
+      box.querySelectorAll('.opt').forEach(x=>{x.disabled=true;if(+x.dataset.k===q.a)x.classList.add('ok');else if(x===b)x.classList.add('ng');});
+      if(ok)score++;else missed.push(i);
+      box.querySelector('.res').innerHTML=`<div class="ans"><span class="v ${ok?'ok':'ng'}">${ok?'正解！':'ざんねん'}</span>　${q.why}</div>
+        <div class="btns" style="margin-top:10px"><button class="go" id="nx">${last?'結果を見る':'つぎの問題へ'}</button></div>`;
+      const nx=box.querySelector('#nx');
+      nx.addEventListener('click',()=>{if(last){finish();}else{pos++;ask();}goTop();});
+      nx.focus({preventScroll:true});
+    }));
+  }
+  function finish(){
+    const n=order.length,pct=score/n;
+    if(full)setBest(score);
+    const msg=pct>=.9?'ひきょうな裏技、マスター！':pct>=.7?'かなり使えるよ。まちがえたところの「ただし」を読み直そう。':pct>=.5?'あと少し。まちがえた裏技を見直して、もういちど。':'まずは裏技をもういちど読んでから、また挑戦しよう。';
+    const ms=missed.slice().sort((a,b)=>a-b);
+    box.innerHTML=`<h2>けっか</h2><p class="big" tabindex="-1">${score} / ${n}</p>
+      <div class="prog"><i style="width:${pct*100}%"></i></div><p style="margin:0">${msg}</p>
+      ${ms.length?`<div><b>まちがえた問題（もういちど見る）</b><ul class="misslist">${ms.map(i=>`<li><a href="#t${i}">${T[i].title}</a></li>`).join('')}</ul></div>`:'<p style="margin:0">ぜんぶ正解！</p>'}
+      ${full&&getBest()?`<p class="sub" style="margin:0">ベスト：${getBest()} / ${N}</p>`:''}
+      <div class="btns">${ms.length?'<button class="btn2" id="rm">まちがえた問題だけやり直す</button>':''}<button class="go" id="again2">もういちど（ランダム）</button></div>`;
+    box.querySelector('.big').focus({preventScroll:true});
+    const rm=box.querySelector('#rm');
+    if(rm)rm.addEventListener('click',()=>{start(ms,false);goTop();});
+    box.querySelector('#again2').addEventListener('click',()=>{start(T.map((_,i)=>i),true);goTop();});
+  }
+  intro();
+}
+const chBox=document.createElement('article');chBox.className='card chal';chBox.id='challenge';list.appendChild(chBox);initChallenge(chBox);
+
+function renderQuiz(i, q) {
+  const box = document.getElementById('quiz' + i);
+  box.innerHTML = `<span class="qt">練習：この裏技をつかってみよう</span>
+    <p>${q.t}</p>${q.html ? '<div style="overflow-x:auto">' + q.html + '</div>' : ''}
+    <div class="opts">${q.o.map((t, k) => `<button class="opt" data-k="${k}">${t}</button>`).join('')}</div>
+    <div class="res" aria-live="polite"></div>`;
+  box.querySelectorAll('.opt').forEach(b => b.addEventListener('click', () => {
+    const k = +b.dataset.k, right = k === q.a;
+    box.querySelectorAll('.opt').forEach((x, j) => {
+      x.disabled = true;
+      if (j === q.a) x.classList.add('ok');
+      else if (j === k) x.classList.add('ng');
+    });
+    box.querySelector('.res').innerHTML = `<div class="ans"><span class="v ${right ? 'ok' : 'ng'}">${right ? '正解！' : 'ざんねん'}</span>　${q.why}</div>
+      <button class="again">もういちど</button>`;
+    box.querySelector('.again').addEventListener('click', () => renderQuiz(i, q));
+  }));
+}
+</script>
+
+</body>
+</html>
